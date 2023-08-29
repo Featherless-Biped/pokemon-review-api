@@ -13,6 +13,9 @@ namespace PokemonReviewApp.Controllers
         private readonly IPokemonRepository _pokemonRepository;
         private readonly IReviewRepository _reviewRepository;
         private readonly IMapper _mapper;
+        private IPokemonRepository pokemonRepository;
+        private IReviewerRepository reviewRepositories;
+        private IMapper mapper;
 
         public PokemonController(IPokemonRepository pokemonRepository,
             IReviewRepository reviewRepository,
@@ -21,6 +24,13 @@ namespace PokemonReviewApp.Controllers
             _pokemonRepository = pokemonRepository;
             _reviewRepository = reviewRepository;
             _mapper = mapper;
+        }
+
+        public PokemonController(IPokemonRepository pokemonRepository, IReviewerRepository reviewRepositories, IMapper mapper)
+        {
+            this.pokemonRepository = pokemonRepository;
+            this.reviewRepositories = reviewRepositories;
+            this.mapper = mapper;
         }
 
         [HttpGet]
